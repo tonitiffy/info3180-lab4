@@ -43,6 +43,7 @@ def add_entry():
     title = request.form['title']
     file = request.files['file']
     filename = file.filename
+    print dir(file)
     file.save(os.path.join("app/static/uploads", filename))
     return render_template("files.html",title=title)
     #g.db.execute('insert into entries (title, text) values (?, ?)',
@@ -63,6 +64,7 @@ def getfiles():
     for subdir, dirs, files in os.walk("app/static/uploads"):
         for file in files:
             file_list += [file]
+            print file
     return file_list
 
 @app.route('/login', methods=['POST','GET'])
