@@ -59,8 +59,7 @@ def getfiles():
     file_list = []
     for subdir, dirs, files in os.walk("app/static/uploads"):
         for file in files:
-            file_list += [file]
-            print file
+            file_list.append(file)
     return file_list
 
 @app.route('/login', methods=['POST','GET'])
