@@ -9,12 +9,8 @@
 
 <ul id="navigation">
     {% for file in file_list %}
-        {{ file['content_type'] }}
-        {% if file %}
-            <li> <img src="{{ file }}" alt="picture" </li>
-        {% else %}
-            <li> {{ file }} </li>
-        {% endif %}
+        
+        {{ file|safe }}
         
     {% endfor %}
 </ul>
